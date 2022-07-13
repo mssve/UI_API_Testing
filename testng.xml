@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+
+<suite name="All Test Suite" parallel="classes" thread-count="4">
+
+    <test name="Authorisation Test">
+        <parameter name="search request" value="performance lab"/>
+        <parameter name="href attribute" value="https://www.performance-lab.ru/"/>
+        <parameter name="button color" value="#4fadff"/>
+        <parameter name="button color on hover" value="#000000"/>
+        <classes>
+            <class name="GoogleTest"/>
+<!--            <class name="PerformanceLabTest"/>-->
+        </classes>
+    </test>
+
+
+
+</suite>
+
