@@ -1,7 +1,6 @@
 package db;
 
 import io.github.cdimascio.dotenv.Dotenv;
-
 import java.util.*;
 import java.sql.*;
 
@@ -21,7 +20,7 @@ public class DBController {
 		ResultSet rs = sendSQL("SELECT * from person");
 		List<DBUserData> users = new ArrayList<>();
 		try {
-			while (rs.next()){
+			while (rs.next()) {
 				DBUserData user = new DBUserData(
 						rs.getInt("id"),
 						rs.getInt("age"),
@@ -53,7 +52,7 @@ public class DBController {
 					rs.getBoolean("sex")
 			);
 			return user;
-			} catch (SQLException throwables) {
+		} catch (SQLException throwables) {
 			throwables.printStackTrace();
 		}
 		return null;

@@ -19,27 +19,23 @@ public class PerformanceLabTestingPage extends BasePage {
 
 	public PerformanceLabTestingPage checkFindOutPricesButtonColor(String expectedColor) throws InterruptedException {
 		Thread.sleep(1000L);
-		String colorValue = fluentWaitElement(findOutPricesButton).getCssValue("background-color");
+		String colorValue = $(findOutPricesButton).fluentWaitElement().getCssValue("background-color");
 		String hexColor = Color.fromString(colorValue).asHex();
 		Assert.assertEquals(hexColor, expectedColor);
 		return this;
 	}
 
 	public PerformanceLabTestingPage hoverFindOutPricesElement() {
-		WebElement element = fluentWaitElement(findOutPricesButton);
+		WebElement element = $(findOutPricesButton).fluentWaitElement();
 		new Actions(driver).moveToElement(element).perform();
 		return this;
 	}
 
 	public PerformanceLabTestingPage hoverTitle() {
-		WebElement element = fluentWaitElement(pageTitle);
+		WebElement element = $(pageTitle).fluentWaitElement();
 		new Actions(driver).moveToElement(element).perform();
 		return this;
 	}
-
-
-
-
 
 
 }

@@ -1,4 +1,4 @@
-package art;
+package interfaces;
 
 public interface UserData {
 

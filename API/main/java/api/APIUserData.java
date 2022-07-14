@@ -1,6 +1,6 @@
 package api;
 
-import art.UserData;
+import interfaces.UserData;
 
 public class APIUserData implements UserData {
 
@@ -33,6 +33,23 @@ public class APIUserData implements UserData {
 
 	public Long getMoney() {
 		return money;
+	}
+
+	public boolean equals(UserData ud) {
+		if (!this.id.equals(ud.getId()))
+			return false;
+		if (!this.age.equals(ud.getAge()))
+			return false;
+		if (!this.money.equals(ud.getMoney()))
+			return false;
+		if (!this.firstName.equals(ud.getFirstName()))
+			return false;
+		if (!this.secondName.equals(ud.getSecondName()))
+			return false;
+		if (!this.sex.equals(ud.getSex()))
+			return false;
+
+		return true;
 	}
 
 }

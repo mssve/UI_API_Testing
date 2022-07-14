@@ -7,11 +7,11 @@
     <test name="Authorisation Test">
         <parameter name="search request" value="performance lab"/>
         <parameter name="href attribute" value="https://www.performance-lab.ru/"/>
-        <parameter name="button color" value="#4fadff"/>
-        <parameter name="button color on hover" value="#000000"/>
+        <parameter name="button color blue" value="#4fadff"/>
+        <parameter name="button color black" value="#000000"/>
         <classes>
-            <class name="GoogleTest"/>
-            <class name="PerformanceLabTest"/>
+            <class name="google.GoogleTest"/>
+            <class name="performance_lab.PerformanceLabTest"/>
         </classes>
     </test>
 

@@ -8,10 +8,8 @@ import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
 import java.util.Comparator;
 import java.util.List;
-
 import static io.restassured.RestAssured.given;
 
 public class UsersTest {
@@ -57,7 +55,6 @@ public class UsersTest {
 				.when()
 				.get("user/" + intUserID)
 				.then()
-				.log().all()
 				.extract()
 				.body()
 				.as(APIUserData.class);

@@ -9,25 +9,18 @@ public class GoogleWelcomePage extends BasePage {
 
 	By searchInput = By.cssSelector("[class = 'gLFyf gsfi']");
 
-
 	public GoogleWelcomePage(WebDriver driver) {
 		super(driver);
 	}
 
 	public GoogleWelcomePage setSearchRequest(String request) {
-		fluentWaitElement(searchInput).sendKeys(request);
+		$(searchInput).fluentWaitElement().sendKeys(request);
 		return this;
 	}
 
 	public void pressEnter() {
-		fluentWaitElement(searchInput).sendKeys(Keys.ENTER);
+		$(searchInput).fluentWaitElement().sendKeys(Keys.ENTER);
 	}
-
-
-
-
-
-
 
 
 }

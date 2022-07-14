@@ -1,6 +1,6 @@
 package db;
 
-import art.UserData;
+import interfaces.UserData;
 
 public class DBUserData implements UserData {
 
@@ -11,9 +11,6 @@ public class DBUserData implements UserData {
 	private String firstName;
 	private String secondName;
 	private String sex;
-
-	public DBUserData() {
-	}
 
 	public DBUserData(Integer id, Integer age, Long money, String firstName, String secondName, Boolean sex) {
 		this.id = id;
