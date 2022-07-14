@@ -11,7 +11,7 @@
         <parameter name="button color on hover" value="#000000"/>
         <classes>
             <class name="GoogleTest"/>
-<!--            <class name="PerformanceLabTest"/>-->
+            <class name="PerformanceLabTest"/>
         </classes>
     </test>
 
