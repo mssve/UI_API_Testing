@@ -7,7 +7,7 @@ import utils.BaseTest;
 
 public class PerformanceLabTest extends BaseTest {
 
-	@Parameters({"button color", "button color on hover"})
+	@Parameters({"button color blue", "button color black"})
 	@Test(testName = "Проверка изменения цвета кнопки 'Узнать цены'")
 	public void checkButtonOnHover(String buttonColorBlue, String buttonColorBlack) throws InterruptedException {
 		open(PERFORMANCE_LAB_URL);

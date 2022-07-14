@@ -1,5 +1,7 @@
 package interfaces;
 
+/* Предоставляет возможность использования метода equals для объектов имплементирующих интерфейс */
+
 public interface UserData {
 
 	Integer getId();

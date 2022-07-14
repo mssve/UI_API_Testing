@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-
-<suite name="All Test Suite" parallel="classes" thread-count="4">
+<suite name="All Test Suite">
 
     <test name="Authorisation Test">
         <parameter name="search request" value="performance lab"/>
@@ -14,8 +13,6 @@
             <class name="performance_lab.PerformanceLabTest"/>
         </classes>
     </test>
-
-
 
 </suite>
 

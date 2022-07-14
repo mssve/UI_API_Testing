@@ -21,7 +21,6 @@ public class DBUserData implements UserData {
 		if (sex != null) {
 			this.sex = sex ? "MALE" : "FEMALE";
 		}
-
 	}
 
 	public Integer getId() {
