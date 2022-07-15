@@ -2,3 +2,5 @@
 /target/
 /.env
 /.gitignore
+/UI_API_Testing.iml
+/.idea
