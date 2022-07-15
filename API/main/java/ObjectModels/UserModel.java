@@ -1,18 +1,15 @@
-package db;
+package ObjectModels;
 
-import interfaces.UserData;
-
-public class DBUserData implements UserData {
+public class UserModel {
 
 	private Integer id;
 	private Integer age;
-	private Integer houseId;
 	private Long money;
 	private String firstName;
 	private String secondName;
 	private String sex;
 
-	public DBUserData(Integer id, Integer age, Long money, String firstName, String secondName, Boolean sex) {
+	public UserModel(Integer id, Integer age, Long money, String firstName, String secondName, Boolean sex) {
 		this.id = id;
 		this.age = age;
 		this.money = money;
@@ -23,16 +20,15 @@ public class DBUserData implements UserData {
 		}
 	}
 
+	public UserModel(){
+	}
+
 	public Integer getId() {
 		return id;
 	}
 
 	public Integer getAge() {
 		return age;
-	}
-
-	public Integer getHouseId() {
-		return houseId;
 	}
 
 	public Long getMoney() {
@@ -51,18 +47,18 @@ public class DBUserData implements UserData {
 		return sex;
 	}
 
-	public boolean equals(UserData ud) {
-		if (!this.id.equals(ud.getId()))
+	public boolean equals(UserModel um) {
+		if (!this.id.equals(um.getId()))
 			return false;
-		if (!this.age.equals(ud.getAge()))
+		if (!this.age.equals(um.getAge()))
 			return false;
-		if (!this.money.equals(ud.getMoney()))
+		if (!this.money.equals(um.getMoney()))
 			return false;
-		if (!this.firstName.equals(ud.getFirstName()))
+		if (!this.firstName.equals(um.getFirstName()))
 			return false;
-		if (!this.secondName.equals(ud.getSecondName()))
+		if (!this.secondName.equals(um.getSecondName()))
 			return false;
-		if (!this.sex.equals(ud.getSex()))
+		if (!this.sex.equals(um.getSex()))
 			return false;
 
 		return true;

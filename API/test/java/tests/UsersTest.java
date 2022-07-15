@@ -1,9 +1,8 @@
 package tests;
 
-import api.Specifications;
-import api.APIUserData;
+import ObjectModels.UserModel;
+import api.SpecificationsBuilder;
 import db.DBController;
-import db.DBUserData;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -16,29 +15,33 @@ public class UsersTest {
 
 	@Test(description = "Проверка соответствия данных пользователей с БД")
 	public void checkAllUsersData() {
-		Specifications.installSpecification(Specifications.requestSpec(), Specifications.responseSpec200());
+		new SpecificationsBuilder()
+				.requestSpec()
+				.responseSpec200()
+				.build();
+
 		SoftAssert result = new SoftAssert();
 
-		List<APIUserData> usersAPI = given()
+		List<UserModel> usersAPI = given()
 				.when()
 				.get("users")
 				.then()
 				.extract()
 				.body()
 				.jsonPath()
-				.getList(".", APIUserData.class)
+				.getList(".", UserModel.class)
 				.stream()
-				.sorted((Comparator.comparingInt(APIUserData::getId)))
+				.sorted((Comparator.comparingInt(UserModel::getId)))
 				.toList();
 
-		List<DBUserData> usersDB = DBController.getAllUsers()
+		List<UserModel> usersDB = DBController.getAllUsers()
 				.stream()
-				.sorted(Comparator.comparingInt(DBUserData::getId))
+				.sorted(Comparator.comparingInt(UserModel::getId))
 				.toList();
 
 		for (int i = 0; i < usersDB.size(); i++) {
-			DBUserData userDB = usersDB.get(i);
-			APIUserData userAPI = usersAPI.get(i);
+			UserModel userDB = usersDB.get(i);
+			UserModel userAPI = usersAPI.get(i);
 			if (!userDB.equals(userAPI)) {
 				result.assertEquals(userAPI.getId(), userDB.getId(), "User ID: " + userDB.getId());
 				result.assertEquals(userAPI.getFirstName(), userDB.getFirstName(), "User ID: " + userDB.getId());
@@ -55,18 +58,21 @@ public class UsersTest {
 	@Parameters("testing user id")
 	@Test
 	public void checkSingleUserData(String userID) {
+		new SpecificationsBuilder()
+				.requestSpec()
+				.responseSpec200()
+				.build();
 		int intUserID = Integer.parseInt(userID);
-		Specifications.installSpecification(Specifications.requestSpec(), Specifications.responseSpec200());
 
-		APIUserData userAPI = given()
+		UserModel userAPI = given()
 				.when()
 				.get("user/" + intUserID)
 				.then()
 				.extract()
 				.body()
-				.as(APIUserData.class);
+				.as(UserModel.class);
 
-		DBUserData userDB = DBController.getUserByID(intUserID);
+		UserModel userDB = DBController.getUserByID(intUserID);
 
 		if (!userDB.equals(userAPI)) {
 			assertEquals(userAPI.getId(), userDB.getId(), "User ID: " + userDB.getId());

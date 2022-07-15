@@ -1,5 +1,6 @@
 package db;
 
+import ObjectModels.UserModel;
 import io.github.cdimascio.dotenv.Dotenv;
 import java.util.*;
 import java.sql.*;
@@ -16,12 +17,12 @@ public class DBController {
 		password = Dotenv.load().get("DB_PASSWORD");
 	}
 
-	public static List<DBUserData> getAllUsers() {
+	public static List<UserModel> getAllUsers() {
 		ResultSet rs = sendSQL("SELECT * from person");
-		List<DBUserData> users = new ArrayList<>();
+		List<UserModel> users = new ArrayList<>();
 		try {
 			while (rs.next()) {
-				DBUserData user = new DBUserData(
+				UserModel user = new UserModel(
 						rs.getInt("id"),
 						rs.getInt("age"),
 						rs.getLong("money"),
@@ -38,12 +39,12 @@ public class DBController {
 		return null;
 	}
 
-	public static DBUserData getUserByID(int id) {
+	public static UserModel getUserByID(int id) {
 		ResultSet rs = sendSQL("SELECT * from person where id = " + id);
-		DBUserData user;
+		UserModel user;
 		try {
 			rs.next();
-			user = new DBUserData(
+			user = new UserModel(
 					rs.getInt("id"),
 					rs.getInt("age"),
 					rs.getLong("money"),
