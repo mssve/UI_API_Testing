@@ -9,8 +9,8 @@
         <parameter name="button color blue" value="#4fadff"/>
         <parameter name="button color black" value="#000000"/>
         <classes>
-            <class name="google.GoogleTest"/>
-            <class name="performance_lab.PerformanceLabTest"/>
+            <class name="UI.google.GoogleTest"/>
+<!--            <class name="UI.performance_lab.PerformanceLabTest"/>-->
         </classes>
     </test>
 

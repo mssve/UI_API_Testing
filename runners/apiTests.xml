@@ -6,7 +6,7 @@
     <test name="Authorisation Test">
         <parameter name="testing user id" value="43"/>
         <classes>
-            <class name="tests.UsersTest"/>
+            <class name="API.UsersTest"/>
         </classes>
     </test>
 

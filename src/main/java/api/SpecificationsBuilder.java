@@ -1,5 +1,7 @@
 package api;
 
+import com.typesafe.config.Config;
+import com.typesafe.config.ConfigFactory;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
@@ -9,7 +11,9 @@ import io.restassured.specification.ResponseSpecification;
 
 public class SpecificationsBuilder {
 
-	private static final String BASE_URI = "http://77.50.236.203:4880/";
+	private static final Config conf = ConfigFactory.load();
+	private static final String BASE_URI = conf.getString("data.baseURI");
+//	private static final String BASE_URI = conf.getString("baseURI");
 
 	public RequestSpecification requestSpecification;
 	public ResponseSpecification responseSpecification;
